@@ -1,51 +1,123 @@
-# 🛒 Retail Transactions Analysis
+# 🛒 Retail Transactions Analysis – Data Preprocessing & Visualization
 
-This project analyzes **Retail Transactions (2000 rows)** dataset to extract business insights using Python. It includes **data cleaning, one-hot encoding, visualizations, and an optional interactive dashboard**.
+## 📌 Project Overview
 
+This project focuses on data inspection, cleaning, preprocessing, and exploratory data analysis (EDA) of a retail dataset.
+The dataset contains 2000 customer transactions with 11 columns.
 
-## 📂 Project Workflow
-
-### 1. Data Cleaning
-
-* Removed inconsistencies & encoded categorical variables (`Gender`, `City`, `ProductCategory`, `PaymentMode`).
-* Saved the cleaned dataset as **`Retail_Cleaned.csv`**.
-
-### 2. Exploratory Data Analysis (EDA)
-
-**Customer Demographics:**
-
-* Age distribution of customers
-* Gender distribution
-* Top 10 cities by number of customers
-
-**Advanced Insights:**
-
-* Average spend per customer by age group
-* City-wise revenue contribution
-* Heatmap: Product Category vs Payment Mode
-
-### 3. Interactive Dashboard (Optional)
-
-* Built using **Plotly Dash** in Python.
-* KPIs included:
-
-  * Age distribution
-  * Gender distribution
-  * City-wise revenue (Top 10)
-  * ProductCategory × PaymentMode heatmap
+The goal is to prepare a cleaned dataset (Retail_Cleaned.csv) and generate insights through EDA for further modeling.
 
 ---
 
-## 📊 Key Visuals
+## 📂 Dataset Information
 
-1. **Age Distribution** (Histogram)
-2. **Gender Distribution** (Bar/Pie chart)
-3. **City-wise Revenue Contribution** (Bar chart)
-4. **Revenue Heatmap**: ProductCategory vs PaymentMode
+File: `Retail_Transactions_2000.csv`
+
+| Column          | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| TransactionID   | Unique ID for each transaction                             |
+| CustomerID      | Unique ID for customers                                    |
+| Gender          | Male/Female/Other                                          |
+| Age             | Age of the customer                                        |
+| City            | City where purchase happened                               |
+| ProductCategory | Category of product purchased (Electronics, Fashion, etc.) |
+| Quantity        | Units purchased                                            |
+| Price           | Price per unit (₹)                                         |
+| TotalAmount     | Derived (Quantity × Price)                                 |
+| PurchaseDate    | Date of purchase                                           |
+| PaymentMode     | Cash, Card, UPI, Wallet                                    |
 
 ---
 
-## 📌 Tools & Libraries
+## 🛠 Part A: Data Preprocessing
 
-* **Python** (pandas, matplotlib, seaborn, plotly, dash)
+### 1. Data Inspection
+
+* Checked dataset shape, columns, and data types.
+* Identified missing values, duplicates, and inconsistent entries.
+
+### 2. Handling Missing Data
+
+* Replaced missing **Age** with mean/median.
+* Filled missing **City** with mode (most frequent city).
+* Dropped rows with missing **TransactionID** or **ProductCategory**.
+
+### 3. Data Cleaning
+
+* Removed duplicate transactions.
+* Standardized categorical values (e.g., "male", "MALE" → "Male").
+* Corrected negative/zero values in `Quantity` and `Price`.
+
+### 4. Feature Engineering
+
+* Derived `TotalAmount` if missing.
+* Extracted **Month** & **DayOfWeek** from `PurchaseDate`.
+* Created **AgeGroup** buckets:
+
+  * 18–25, 26–40, 41–60, 60+
+
+### 5. Encoding & Transformation
+
+* Encoded categorical variables (`Gender`, `City`, `ProductCategory`, `PaymentMode`).
+* Normalized numerical features (`Age`, `Price`, `TotalAmount`) where required.
+
+### 6. Final Verification
+
+* Ensured dataset is clean & consistent.
+* Exported final file as **`Retail_Cleaned.csv`**.
+
+---
+
+## 📊 Part B: Data Visualization
+
+### 1. Customer Demographics
+
+* 📌 Age distribution (histogram).
+* 📌 Gender distribution (bar chart).
+* 📌 Top 10 cities by customer count.
+
+### 2. Sales Insights
+
+* 📌 Total sales by product category (bar chart).
+* 📌 Monthly sales trend (line chart).
+* 📌 Payment mode usage (pie chart).
+
+### 3. Advanced Insights
+
+* 📌 Average spend per customer by age group.
+* 📌 City-wise revenue contribution (bar chart).
+* 📌 Heatmap of Product Category vs Payment Mode.
+
+
+## 🚀 Tools & Libraries Used
+
+* **Python**: Pandas, NumPy, Matplotlib, Seaborn, Plotly
+* **Data Cleaning**: Pandas
+
+---
+
+## 📈 Key Outcomes
+
+* Cleaned dataset ready for further ML/analytics use.
+* Insights into:
+
+  * Most popular product categories & payment modes.
+  * Seasonal/Monthly sales trends.
+  * City-wise contributions.
+  * Customer demographics & spending behaviour.
+
+---
+
+## 📌 Deliverables
+
+* ✅ `Retail_Cleaned.csv` (processed dataset)
+* ✅ Preprocessing Python script (`retail_analysis.py`)
+* ✅ Visualization scripts / notebook
+
+---
+
+
+✨ **This project demonstrates end-to-end preprocessing & visualization for real-world retail data.**
+
+-
 
