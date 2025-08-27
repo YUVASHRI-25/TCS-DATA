@@ -118,13 +118,13 @@ File: `Retail_Transactions_2000.csv`
 
 ## 📊 Sample Visuals
 
-* Age & Gender Distribution
+ **Age & Gender Distribution**
  ![alt text](image.png)
-* Sales by Product Category
+ **Sales by Product Category**
  ![alt text](image-1.png)
-* Monthly Sales Trend
+ **Monthly Sales Trend**
  ![alt text](image-2.png)
-* City-wise Revenue Contribution
+ **City-wise Revenue Contribution**
  ![alt text](image-3.png)
 
 
@@ -132,5 +132,5 @@ File: `Retail_Transactions_2000.csv`
 
 ✨ **This project demonstrates end-to-end preprocessing & visualization for real-world retail data.**
 
--
+
 
